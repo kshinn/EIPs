@@ -38,13 +38,13 @@ space, the Ethereum clients should keep pace and offer similar amenities to deve
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Ethereum platforms (go-ethereum, parity, cpp-ethereum, ethereumj, ethereumjs, and [others](https://github.com/ethereum/wiki/wiki/Clients)).-->
 The GraphQL interface should be presented as an option on clients and should be able to
-run along side the JSON-RPC. This would require a separate configuration for ports. An
+run along side the JSON-RPC. This would require a separate configuration parameters (e.g. interface port). An
 example for enabling a GraphQL interface taken from the Geth implementation might be:
 
 ```
---graphql
---graphql.addr 127.0.0.1
---graphql.port 8765
+--graphql                   // enable the graphQL interface
+--graphql.addr 127.0.0.1    // Provide a bind address 
+--graphql.port 8765         // Provide the listener port
 ```
 
 The GraphQL interface should support Query, Mutator, and Subscription formats in order
@@ -512,18 +512,14 @@ where a client only uses one or two fields, but needs to make multiple calls to 
 of the data. A new standard for data fetching needs to be specified at a fundamental level 
 similar to the JSON-RPC spec to benefit from direct access of data and drive developer 
 adoption to build applications.
- 
-GraphQL, a modern API definition open sourced by Facebook, is declaratively typed, type 
-safe, extensible and well understood pattern of client to server communication. It is 
-has stronger defined semantics than JSON RPC and provides an extensible and backward 
-compatible way to provide an evolving API. GraphQL features introspection and self-
-documentation as part of it’s contract definition. GraphQL schemas lead themselves to 
-easy documentation building, interactive tooling, and client side code generation. 
-GraphQL provides projection as a central query feature, so the resulting response from 
-the server is more wire efficient for dApps. This is especially true for constrained 
-network and memory environments such as mobile based applications. GraphQL can also support 
-missing functionality in the JSON-RPC implementation such as stateless filtering, paging, 
-scanning, and subscriptions.
+
+GraphQL provides the following improvements:
+* Efficient querying of data through explicity selection of the fields the application is interested in.
+* Provides a way to evolve the API while providing backward compatibility
+* Existing tooling provides self documenting, client generation, and developer playgrounds
+* Provides a stronger typed system than existing interfaces
+* Provides additional features such as stateless filtering, paging, scanning, and subscriptions
+* More efficient wire transmission by omitting data not needed by the applications. 
 
 ## Backwards Compatibility
 <!--All EIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The EIP must explain how the author proposes to deal with these incompatibilities. EIP submissions without a sufficient backwards compatibility treatise may be rejected outright.-->
