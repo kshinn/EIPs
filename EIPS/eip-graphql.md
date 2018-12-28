@@ -1,3 +1,4 @@
+---
 eip: <to be assigned>
 title: Ethereum API Using GraphQL
 author: Kris Shinn (@kshinn), Raul Kripalani (@raulk), Nick Johnson (@Arachnid)
