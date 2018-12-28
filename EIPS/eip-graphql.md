@@ -51,7 +51,7 @@ The GraphQL interface should support Query, Mutator, and Subscription formats in
 to fully support all functionality in the JSON-RPC specification.
 
 The Query format is defined as the following:
-```
+```graphql
 extend type Query {
   "Selects an account."
   account(address: Address!): Account
