@@ -497,14 +497,6 @@ enum Unit {
   "1 tether == 1_000_000_000_000_000_000_000_000_000_000 wei == 1_000_000_000_000 ether"
   tether
 }
-
-scalar Long
-
-scalar Bytes32
-
-scalar BlockNumber
-
-scalar Address
 ```
 
 ## Rationale
